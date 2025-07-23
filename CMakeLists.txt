@@ -14,3 +14,14 @@ target_link_libraries(main SDL2::SDL2)
 if(TARGET SDL2::SDL2main)
     target_link_libraries(main SDL2::SDL2main)
 endif()
+
+if(WIN32)
+
+add_custom_command(
+  TARGET Sandbox POST_BUILD COMMAND
+  cmake -E copy_if_different
+    $<TARGET_FILE:SDL2>
+    $<TARGET_FILE_DIR:main>
+)
+
+endif()
