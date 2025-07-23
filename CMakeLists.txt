@@ -18,7 +18,7 @@ endif()
 if(WIN32)
 
 add_custom_command(
-  TARGET Sandbox POST_BUILD COMMAND
+  TARGET main POST_BUILD COMMAND
   cmake -E copy_if_different
     $<TARGET_FILE:SDL2>
     $<TARGET_FILE_DIR:main>
